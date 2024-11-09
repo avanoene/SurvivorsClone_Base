@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4p6mkm6l7dtm"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_6lq3d"]
+[ext_resource type="Texture2D" uid="uid://b6djgw3h72yky" path="res://Textures/Player/player_sprite.png" id="1_b6jus"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kgolx"]
+radius = 5.0
+height = 22.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_6lq3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["player"]]
+texture = ExtResource("1_b6jus")
+hframes = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3)
+shape = SubResource("CapsuleShape2D_kgolx")
+
+[node name="walkTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+autostart = true
