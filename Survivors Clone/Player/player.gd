@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var hp = 80
 
 var movement_speed = 40.0
 @onready var sprite = $Sprite2D
@@ -29,3 +30,9 @@ func movement() -> void:
 	velocity = mov_vect * movement_speed # normalized vector mult by how many pixels per frame
 	move_and_slide() #built in func 
  
+
+
+func _on_hurt_box_hurt(damage: Variant) -> void:
+	hp -= damage
+	print(hp)
+	print(damage)
