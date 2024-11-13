@@ -16,7 +16,7 @@ func _on_timer_timeout() -> void:
 				wave.spawn_delay_counter += 1
 			else:
 				wave.spawn_delay_counter = 0
-				var new_enemy = load(str(wave.enemy.resource_path))
+				var new_enemy = wave.enemy
 				var counter = 0
 				while counter < wave.enemy_num:
 					var enemy_spawn = new_enemy.instantiate()
